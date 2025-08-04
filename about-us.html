@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="shortcut icon" type="x-icon" href="JavaLavalogo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Java Lava</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Mobile menu animation */
+    .mobile-menu-enter {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+
+    .mobile-menu-enter-active {
+      transform: scaleY(1);
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-900 to-gray-900 text-white font-sans min-h-screen">
+
+  <!-- Navbar -->
+  <header class="bg-gradient-to-r from-blue-900 to-gray-900 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <a href="/" class="text-2xl font-bold text-white">Java Lava</a>
+        <div class="hidden md:flex space-x-6">
+          <a href="/" class="text-gray-300 hover:text-white transition nav-link">Home</a>
+          <a href="/about.html" class="text-gray-300 hover:text-white transition nav-link">About Us</a>
+          <a href="/Terms-of-service.html" class="text-gray-300 hover:text-white transition nav-link">Terms</a>
+          <a href="/Privacy-Policy.html" class="text-gray-300 hover:text-white transition nav-link">Privacy</a>
+          <a href="https://discord.gg/ZZbuatGPHr" class="text-gray-300 hover:text-white transition nav-link">Support</a>
+          <a href="https://discord.com/oauth2/authorize?client_id=1305190785536360519"
+            class="text-gray-300 hover:text-white transition nav-link">Invite</a>
+            <script src="https://javalava.statuspage.io/embed/script.js"></script>
+        </div>
+        
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-gray-300">
+      <a href="/" class="block hover:text-white">Home</a>
+      <a href="/about.html" class="block hover:text-white">About Us</a>
+      <a href="/Terms-of-service.html" class="block hover:text-white">Terms</a>
+      <a href="/Privacy-Policy.html" class="block hover:text-white">Privacy</a>
+      <a href="https://discord.gg/ZZbuatGPHr" class="block hover:text-white">Support</a>
+      <a href="https://discord.com/oauth2/authorize?client_id=1305190785536360519"
+        class="block hover:text-white">Invite</a>
+    </div>
+    <script src="https://javalava.statuspage.io/embed/script.js"></script>
+  </header>
+
+  
+  <main class="max-w-4xl mx-auto px-6 py-12 text-center">
+    <h1 class="text-4xl font-extrabold mb-6">Where did Java Lava start and what is it about?</h1>
+
+    <p class="text-lg mb-4">Here at Java Lava, PhillsPhanbh3, Jeo, Ziggy, and Thus work hard on all things coding — we're passionate about it.</p>
+    <p class="text-lg mb-4">Java Lava started one day in November of 2024 as an ambitious idea to create a public, verified Discord bot.</p>
+    <p class="text-lg mb-4">PhillsPhanbh3 didn’t know where to begin, but with the help of a talented coder friend, Jeo, the project began to take off.</p>
+    <p class="text-lg mb-4">Since then, Java Lava has grown to over 50 servers and continues expanding with the development of new systems and features.</p>
+    <p class="text-lg mb-4">Right now, Java Lava is focused on moderation and automod functionality — but the goal is to evolve into an all-in-one bot like MEE6.</p>
+    <p class="text-lg mb-6 font-semibold text-blue-300">We're building something new, bold, and exciting — and you're a part of that journey.</p>
+
+    <p class="text-md text-gray-300">With gratitude, <br />The Java Lava Devs – PhillsPhanbh3, Jeo, & Ziggy</p>
+  </main>
+
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+
+</html>

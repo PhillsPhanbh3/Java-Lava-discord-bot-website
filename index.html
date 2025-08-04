@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="shortcut icon" type="x-icon" href="JavaLavalogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Lava Discord Bot - Powerful Moderation & Fun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+    .nav-link {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #d1d5db; /* Tailwind gray-300 */
+        font-weight: 600;
+        transition:
+            color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+
+    .nav-link:hover {
+        color: white;
+        transform: translateY(-3px);
+        text-decoration: none;
+    }
+
+    .nav-link.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    
+    @media (max-width: 767px) {
+        .nav-link {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-link:hover {
+            background-color: #c648ff;
+            color: white;
+        }
+    }
+</style>
+
+</head>
+
+<body
+    class="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white min-h-screen transition-all duration-300">
+    <header class="bg-gradient-to-r from-blue-900 to-gray-900 shadow-xl z-40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            
+            <div class="flex-shrink-0 text-3xl font-extrabold text-white tracking-wide pl-2 lg:pl-0">
+                Java Lava
+            </div>
+
+            <nav class="hidden md:flex flex-wrap items-center justify-start gap-x-6 text-lg text-gray-300 ml-8">
+                <a href="/" class="nav-link show hover:text-white"><i class="fas fa-home"></i> Home</a>
+                <a href="/about-us.html" class="nav-link show hover:text-white"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="/Terms-of-service.html" class="nav-link show hover:text-white"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                <a href="/Privacy-Policy.html" class="nav-link show hover:text-white"><i class="fas fa-user-shield"></i>Privacy Policy</a>
+                <a href="/partners.html" class="nav-link show hover:text-white"><i class="fas fa-handshake"></i> Partners</a>
+                <a href="https://top.gg/bot/1305190785536360519/vote" target="_blank" class="nav-link show hover:text-white"><i class="fas fa-vote-yea"></i> Vote</a>
+                <a href="" target="_blank" class="nav-link show hover:text-white"><i class="fas fa-info"></i> Docs</a>
+            </nav>
+            <script src="https://javalava.statuspage.io/embed/script.js"></script>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+       </div>
+      </header>
+
+    <div id="backdrop" class="hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-40 fade-in-bg"></div>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 flex justify-center items-center z-50 fade-in-popup">
+        <div class="bg-blue-800 p-8 rounded-xl shadow-2xl w-11/12 max-w-sm text-center relative">
+            <button id="close-menu" class="absolute top-4 right-4 text-white text-3xl font-bold">&times;</button>
+            <div id="menu-links" class="space-y-4 mt-6 text-xl">
+                <a href="/" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-home"></i> Home</a>
+                <a href="/about-us.html" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-info-circle"></i> About us</a>
+                <a href="/Terms-of-service.html" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-file-contract"></i> Terms of Service</a>
+                <a href="/Privacy-Policy.html" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-user-shield"></i> Privacy Policy</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1305190785536360519" target="_blank"
+                    rel="noopener noreferrer" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fab fa-discord"></i> Invite Bot</a>
+                <a href="https://javalava.statuspage.io/" target="_blank" rel="noopener noreferrer"
+                    class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-server"></i> Status Page</a>
+                <a href="/partners.html" class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-handshake"></i> Partners</a>
+                <a href="https://top.gg/bot/1305190785536360519/vote" target="_blank" rel="noopener noreferrer"
+                    class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-vote-yea"></i> Vote</a>
+                <a href="" target="_blank" rel="noopener noreferrer"
+                    class="block nav-link py-3 hover:bg-purple-600 rounded-lg transition duration-200"><i
+                        class="fas fa-info"></i> Docs</a>
+            </div>
+            <script src="https://javalava.statuspage.io/embed/script.js"></script>
+        </div>
+    </div>
+
+    <main id="main-content" class="relative z-10">
+        <section class="flex flex-col items-center justify-center text-center py-24 px-4 bg-transparent">
+            <h1 class="text-6xl font-extrabold mb-6 leading-tight animate-pulse-fade">
+                <span class="text-orange-500">Welcome to Java Lava</span>
+            </h1>
+            <p class="text-2xl max-w-3xl mb-10 text-yellow-500 opacity-180">
+                New updates will be coming out every 2-3, possibly 6 months due to them being more complex
+            </p>
+            <p class="text-2xl max-w-3xl mb-10 text-yellow-200 opacity-90">
+                Java Lava is a powerful moderation, automod, and community fun bot made by PhillsPhanbh3, TrainerJeo, and
+                ziggy._.mc.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://discord.com/oauth2/authorize?client_id=1305190785536360519"
+                    class="btn bg-green-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord mr-3"></i> Add to Your Server
+                </a>
+                <a href="https://discord.gg/ZZbuatGPHr"
+                    class="btn border-2 border-white text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105 hover:bg-white hover:text-blue-900"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-life-ring mr-3"></i> Join Our Support Server
+                </a>
+                <a href="/premium.html"
+                    class="btn bg-orange-600 hover:bg-pink-600 text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-gem"></i> Premium
+                </a>
+            </div>
+            <p class="text-gray-400 text-lg mt-8"></p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://javalava.statuspage.io/"
+                    class="btn bg-blue-600 hover:bg-yellow-500 text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-server"></i> Status Page
+                </a>
+                <a href="/about-us.html"
+                    class="btn bg-yellow-600 hover:bg-green-800 text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-info-circle"></i> About Us
+                </a>
+            </div>
+            <p class="text-gray-400 text-lg mt-8"></p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href=""
+                    class="btn bg-purple-600 hover:bg-red-600 text-white font-bold px-8 py-4 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-info"></i> Docs
+                </a>
+            </div>
+            <p class="text-gray-400 text-lg mt-8">Trusted by growing Discord communities.</p>
+        </section>
+
+        <section class="py-20 px-4 bg-yellow-500 bg-opacity-70">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-16">Version 1.20 has released on July 24th 2025</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-bug"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Fixed bugs!</h3>
+                        <p class="text-gray-200 text-lg">
+                            We have fixed the ban command after multiple developer errors sorry everyone.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-x"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">removed commands</h3>
+                        <p class="text-gray-200 text-lg">
+                            We have removed the /gag-a-member command from all bots. I thought it was removed on all bots but somehow it was not on multiple custom branding bots and premium.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">New features!</h3>
+                        <p class="text-gray-200 text-lg">
+                            We have added some new features to the bot and website! check them out below!
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-sliders-h"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">bot itself</h3>
+                        <p class="text-gray-200 text-lg">
+                            Java Lava now can help remind you of things you set through the bot, this requires you to have dms turn on!
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-user-friends"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">website updates</h3>
+                        <p class="text-gray-200 text-lg">
+                            We have buttons that turn from for example yellow to pink for our premium button!
+                            And the new premium page, about us, and in Development a documentation page!
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Open Beta bot!</h3>
+                        <p class="text-gray-200 text-lg">
+                            We have made a brand new Java Lava Open beta discord bot! It is highly unstable but it has the newest features!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <section class="py-20 px-4 bg-orange-600 bg-opacity-70">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-16">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Robust Moderation</h3>
+                        <p class="text-gray-200 text-lg">
+                            Keep your server safe and organized with a comprehensive suite of moderation commands. From
+                            kicks and bans to warnings and mutes, Java Lava provides the tools you need.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-robot"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Intelligent AutoMod</h3>
+                        <p class="text-gray-200 text-lg">
+                            Set up rules to automatically detect and handle spam, offensive language, unwanted links, and
+                            more, ensuring a clean and friendly environment 24/7.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-dice"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Engaging Fun Commands</h3>
+                        <p class="text-gray-200 text-lg">
+                            Boost interaction with a variety of entertaining commands, mini-games, and utilities designed
+                            to keep your members active and happy.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-sliders-h"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Highly Customizable</h3>
+                        <p class="text-gray-200 text-lg">
+                            Tailor Java Lava to fit your community's unique needs with flexible settings and configurable
+                            command prefixes.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-user-friends"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Easy to Use</h3>
+                        <p class="text-gray-200 text-lg">
+                            Designed with simplicity in mind, Java Lava is intuitive for both server owners and members,
+                            making setup and daily use a breeze.
+                        </p>
+                    </div>
+
+                    <div class="feature-card bg-blue-800 p-8 rounded-2xl shadow-xl text-center">
+                        <div class="text-6xl text-blue-300 mb-6"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="text-3xl font-semibold mb-4">Regular Updates</h3>
+                        <p class="text-gray-200 text-lg">
+                            We're constantly improving Java Lava, adding new features and enhancing existing ones based on
+                            community feedback.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 py-8 mt-16 text-center text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; <span id="current-year"></span> Java Lava Discord Bot. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="/Terms-of-service.html" class="hover:text-white transition duration-200">Terms of Service</a>
+                <a href="/Privacy-Policy.html" class="hover:text-white transition duration-200">Privacy Policy</a>
+                <a href="https://discord.gg/ZZbuatGPHr" class="hover:text-white transition duration-200" target="_blank"
+                    rel="noopener noreferrer">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        const closeBtn = document.getElementById("close-menu");
+        const backdrop = document.getElementById("backdrop");
+        const mainContent = document.getElementById("main-content");
+        const navLinks = document.querySelectorAll("#menu-links .nav-link");
+
+        function showMenu() {
+            menu.classList.remove("hidden");
+            backdrop.classList.remove("hidden");
+            backdrop.classList.add("fade-in-bg");
+            mainContent.classList.add("blurred");
+
+            navLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.classList.add("show");
+                }, i * 70);
+            });
+        }
+
+        function closeMenu() {
+            navLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.classList.remove("show");
+                }, (navLinks.length - 1 - i) * 50);
+            });
+
+            setTimeout(() => {
+                menu.classList.add("hidden");
+                backdrop.classList.add("hidden");
+                mainContent.classList.remove("blurred");
+            }, navLinks.length * 50 + 100);
+        }
+
+        btn.addEventListener("click", showMenu);
+        closeBtn.addEventListener("click", closeMenu);
+        backdrop.addEventListener("click", closeMenu);
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
