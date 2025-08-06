@@ -1,0 +1,42 @@
+.nav-link {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #d1d5db; /* Tailwind gray-300 */
+        font-weight: 600;
+        transition:
+            color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+
+    .nav-link:hover {
+        color: white;
+        transform: translateY(-3px);
+        text-decoration: none;
+    }
+
+    .nav-link.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    
+    @media (max-width: 767px) {
+        .nav-link {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-link:hover {
+            background-color: #c648ff;
+            color: white;
+        }
+    }
